@@ -3,6 +3,7 @@ using FileAccess;
 using FileAccess.DataTypes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StringConcatination
 {
@@ -15,10 +16,47 @@ namespace StringConcatination
             string path = "";
             var data = new DataAccess();
             var records = data.Load<DoubleValue<string, string>>(path + "Input.txt");
-            records.ForEach(x => x.Item2 = converter.TypeToParser(x.Item2, "value"));
-            var outPut = MakeSwitchCases(records, "car");
+            //records.ForEach(x => x.Item2 = converter.TypeToParser(x.Item2, "value"));
+            var outPut = MakeSqlInsertLine(records, "@");
             data.Write(path + "Output.txt", outPut);
         }
+
+        public List<SingleValue<string>> MakeSqlInsertLine(List<DoubleValue<string, string>> records, string preFix)
+        {
+            var outPut = new List<SingleValue<string>>();
+            Set(ref outPut, i => "", records.Count);
+            Append(ref outPut, i => preFix + records[i].Item1 + ", ");
+
+            string res = "";
+            foreach (var line in outPut)
+            {
+                res += line.Item1;
+            }
+            return new List<SingleValue<string>>()
+            {
+                new SingleValue<string>()
+                {
+                    Item1 = res
+                }
+            };
+        }
+
+        public List<SingleValue<string>> MakeSqlRows(List<DoubleValue<string, string>> records)
+        {
+            var outPut = new List<SingleValue<string>>();
+            Set(ref outPut, i => "", records.Count);
+            Append(ref outPut, i => "[" + records[i].Item1 + "] " + records[i].Item2.ToUpper() + " NULL,");
+            return outPut;
+        }
+
+        public List<SingleValue<string>> MakeSqlVariables(List<DoubleValue<string, string>> records)
+        {
+            var outPut = new List<SingleValue<string>>();
+            Set(ref outPut, i => "@", records.Count);
+            Append(ref outPut, i => records[i].Item1 + " " + records[i].Item2 + ",");
+            return outPut;
+        }
+
 
         public List<SingleValue<string>> MakeSwitchCases(List<DoubleValue<string, string>> records, string variableName)
         {
