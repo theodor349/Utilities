@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PropertiesGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\theod\\Desktop\\Input.txt"
+    }
+  }
+}

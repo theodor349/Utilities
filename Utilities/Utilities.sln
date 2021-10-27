@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringConcatination", "Stri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileAccess", "FileAccess\FileAccess.csproj", "{EBF0E8A0-2A0B-4ACB-9FF3-F9403E1FF07D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "Converter\Converter.csproj", "{739074C4-642C-4C73-AED5-439DE3A695FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Converter", "Converter\Converter.csproj", "{739074C4-642C-4C73-AED5-439DE3A695FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertiesGenerator", "PropertiesGenerator\PropertiesGenerator.csproj", "{F97CA23C-C539-438E-B81A-EFEF252CFA3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{739074C4-642C-4C73-AED5-439DE3A695FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{739074C4-642C-4C73-AED5-439DE3A695FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{739074C4-642C-4C73-AED5-439DE3A695FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F97CA23C-C539-438E-B81A-EFEF252CFA3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F97CA23C-C539-438E-B81A-EFEF252CFA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F97CA23C-C539-438E-B81A-EFEF252CFA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F97CA23C-C539-438E-B81A-EFEF252CFA3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
